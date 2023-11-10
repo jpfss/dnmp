@@ -7,3 +7,6 @@ docker-compose.yml.*
 www/*
 !www/localhost/
 logs/*
+data/portainer/portainer.db
+data/portainer/portainer.key
+data/portainer/portainer.pub
