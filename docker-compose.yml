@@ -105,7 +105,7 @@ services:
       - ${PHP80_FPM_CONF_FILE}:/usr/local/etc/php-fpm.d/www.conf:rw
       - ${PHP80_LOG_DIR}:/var/log/php
       - ${DATA_DIR}/composer:/tmp/composer
-    restart: always
+    restart: unless-stopped
     cap_add:
       - SYS_PTRACE
     # 资源限制
