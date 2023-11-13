@@ -135,8 +135,8 @@ services:
       - ${SOURCE_DIR}:/www/:rw,cached
       - ${PHP80_PHP_CONF_FILE}:/usr/local/etc/php/php.ini:ro,cached
       - ${PHP80_FPM_CONF_FILE}:/usr/local/etc/php-fpm.d/www.conf:rw,cached
-      - ${PHP80_LOG_DIR}:/var/log/php,cached
-      - ${DATA_DIR}/composer:/tmp/composer,cached
+      - ${PHP80_LOG_DIR}:/var/log/php:cached
+      - ${DATA_DIR}/composer:/tmp/composer:cached
     restart: unless-stopped
     cap_add:
       - SYS_PTRACE
