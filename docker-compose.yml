@@ -227,7 +227,6 @@ services:
       - ${MYSQL_CONF_FILE}:/etc/mysql/conf.d/mysql.cnf:ro,cached
       - ${DATA_DIR}/mysql:/var/lib/mysql/:rw,cached
       - ${MYSQL_LOG_DIR}:/var/log/mysql/:rw,cached
-
     restart: unless-stopped
     environment:
       MYSQL_ROOT_PASSWORD: "${MYSQL_ROOT_PASSWORD}"
@@ -237,11 +236,11 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.50'
-          memory: 300M
+          cpus: '1'
+          memory: 500M
         reservations:
-          cpus: '0.25'
-          memory: 300M
+          cpus: '1'
+          memory: 500M
 
   # mysql5:
   #   image: mysql:${MYSQL5_VERSION}
