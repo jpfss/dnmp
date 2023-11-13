@@ -24,6 +24,7 @@ slow-query-log-file     = /var/log/mysql/mysql.slow.log
 log-error               = /var/log/mysql/mysql.error.log
 
 default-time-zone       = '+8:00'
+innodb_buffer_pool_size = 500M  #设置500M
 
 [mysql]
 default-character-set   = utf8mb4
