@@ -20,6 +20,27 @@ services:
           cpus: '0.25'
           memory: 300M
 
+  open-webui:
+    image: ghcr.io/open-webui/open-webui:main 
+    container_name: open-webui
+    restart: unless-stopped
+    ports:
+      - 3000:8080
+    extra_hosts:
+      - 'host.docker.internal:host-gateway'
+    volumes:
+      - '${DATA_DIR}/open-webui:/app/backend/data'
+    # 资源限制
+    deploy:
+      resources:
+        limits:
+          cpus: '0.50'
+          memory: 300M
+        reservations:
+          cpus: '0.25'
+          memory: 300M
+
+
   nginx:
     build:
       context: ./services/nginx
