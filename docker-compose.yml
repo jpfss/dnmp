@@ -249,6 +249,7 @@ services:
       - ${DATA_DIR}/mysql:/var/lib/mysql/:rw,cached
       - ${MYSQL_LOG_DIR}:/var/log/mysql/:rw,cached
     restart: unless-stopped
+    command: --lower_case_table_names=1
     environment:
       MYSQL_ROOT_PASSWORD: "${MYSQL_ROOT_PASSWORD}"
       MYSQL_ROOT_HOST: "${MYSQL_ROOT_HOST}"
