@@ -6,6 +6,9 @@ default-character-set   = utf8mb4
 [mysqld]
 user                    = mysql
 port                    = 3306
+max_allowed_packet = 500M
+wait_timeout = 3600
+interactive_timeout = 3600
 sql_mode                = NO_ENGINE_SUBSTITUTION,STRICT_TRANS_TABLES
 
 default-storage-engine  = InnoDB
