@@ -6,6 +6,7 @@ docker-compose.yml
 docker-compose.yml.*
 www/*
 !www/localhost/
+data/**
 logs/*
 *.db
 *.key
