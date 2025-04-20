@@ -419,6 +419,29 @@ services:
 #    networks:
 #      - default
 
+  n8n:
+    image: n8nio/n8n
+    container_name: n8n
+    # 指定容器退出后的重启策略为始终重启，但是不考虑在Docker守护进程启动时就已经停止了的容器
+    restart: unless-stopped
+    ports:
+      - "5678:5678"
+    environment:
+      - N8N_BASIC_AUTH_ACTIVE=true
+      - N8N_BASIC_AUTH_USER=admin
+      - N8N_BASIC_AUTH_PASSWORD=admin
+    volumes:
+      - ${DATA_DIR}/n8n:/home/node/.n8n
+    # 资源限制
+    deploy:
+      resources:
+        limits:
+          cpus: '0.50'
+          memory: 400M
+        reservations:
+          cpus: '0.25'
+          memory: 300M
+
   postgresql:
     # 镜像'postgres:14.5'
     image: registry.cn-hangzhou.aliyuncs.com/zhengqing/postgres:14.5
@@ -441,7 +464,7 @@ services:
     # 映射端口
     ports:
       - "5432:5432"
-     # 资源限制
+    # 资源限制
     deploy:
       resources:
         limits:
